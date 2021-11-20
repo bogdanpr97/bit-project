@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ReactComponent as LandingImage } from '../../assets/images/landing.svg';
+import GeneralModal from '../../components/Modal';
 import { NotificationContext } from '../../providers/NotificationProvider';
 import './styles.scss';
 
 const Landing = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const { addNotification } = useContext(NotificationContext);
-
+//onClick={() => addNotification('Successfully saved the report')}
   return (
     <div className="landing-container">
+      <GeneralModal open={modalOpen} setOpen={setModalOpen} />
       <div className="page-title">Page Title</div>
       <div className="content">
         <div className="info">
@@ -18,7 +21,7 @@ const Landing = () => {
           <div className="info-text">
             You don’t have any reports defined yet
           </div>
-          <div onClick={() => addNotification('Successfully saved the report')} className="info-button">
+          <div onClick={() => setModalOpen(true)}  className="info-button">
             Create Report
           </div>
         </div>
