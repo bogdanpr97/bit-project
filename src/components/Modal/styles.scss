@@ -23,3 +23,22 @@
   height: 100%;
   padding: 24px;
 }
+
+.close-modal-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.section-heading {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.input-section {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

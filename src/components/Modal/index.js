@@ -3,6 +3,11 @@ import { styled, Box } from '@mui/system';
 import Modal from '@mui/material/Modal';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close-modal.svg';
 import './styles.scss';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import CustomSelect from '../Select';
 
 const style = {
   position: 'absolute',
@@ -15,10 +20,26 @@ const style = {
   py: 4,
 };
 
+const typeOptions = [
+  {
+    value: "Executive Summary",
+    text: "Executive Summary",
+  },
+  {
+    value: "Executive Summary 2",
+    text: "Executive Summary 2",
+  },
+]
+
 export default function GeneralModal({open, setOpen}) {
-  // const [open, setOpen] = React.useState(false);
+  const [type, setType] = React.useState("");
+
+  const handleChange = (event) => {
+    setType(event.target.value);
+  };
+
   const handleClose = () => setOpen(false);
-  console.log(open, setOpen)
+
   return (
     <div>
       <Modal
@@ -31,10 +52,16 @@ export default function GeneralModal({open, setOpen}) {
           <div className="modal-container">
             <div className="modal-header">
               <div>Create report</div>
-              <CloseIcon />
+              <CloseIcon className="icon" onClick={() => handleClose()} />
             </div>
             <div className="border" />
-            <div className="modal-content">rest of content</div>
+            <div className="modal-content">
+              <div className="section-heading">Details</div>
+              <div className="input-section">
+                <div>Type</div>
+                <CustomSelect value={type} onChange={handleChange} options={typeOptions} />
+              </div>
+            </div>
           </div>
         </Box>
       </Modal>
