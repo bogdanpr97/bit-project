@@ -1,13 +1,10 @@
 import * as React from 'react';
-import { styled, Box } from '@mui/system';
+import { Box } from '@mui/system';
 import Modal from '@mui/material/Modal';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close-modal.svg';
 import './styles.scss';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
 import CustomSelect from '../Select';
+import Input from '../Input';
 
 const style = {
   position: 'absolute',
@@ -33,6 +30,7 @@ const typeOptions = [
 
 export default function GeneralModal({open, setOpen}) {
   const [type, setType] = React.useState("");
+  const [name, setName] = React.useState("");
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -60,6 +58,10 @@ export default function GeneralModal({open, setOpen}) {
               <div className="input-section">
                 <div>Type</div>
                 <CustomSelect value={type} onChange={handleChange} options={typeOptions} />
+              </div>
+              <div className="input-section">
+                <div>Name*</div>
+                <Input value={name} setValue={setName} />
               </div>
             </div>
           </div>
