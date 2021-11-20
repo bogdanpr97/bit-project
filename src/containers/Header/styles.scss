@@ -1,0 +1,22 @@
+.header-container {
+  height: 56px;
+  width: 100%;
+  display: flex;
+  background-color: coral;
+  justify-content: end;
+  background-color: white;
+  align-items: center;
+  padding-right: 24px;
+}
+
+.profile-text {
+  margin-right: 38px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 14px;
+  cursor: pointer;
+  color: #707070;
+}

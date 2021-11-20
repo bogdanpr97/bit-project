@@ -1,0 +1,20 @@
+.alert {
+  background-color:#268E6C !important;
+  display: flex !important;
+}
+
+.toast-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-text {
+  padding-right: 8px;
+  border-right: 1px solid white;
+  margin-right: 12px;
+}
+
+.close {
+  cursor: pointer;
+}
