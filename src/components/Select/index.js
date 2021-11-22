@@ -20,7 +20,8 @@ const CustomMUISelect = styled(Select)(({ theme }) => ({
   '.MuiSelect-icon': {
     // backgroundColor: '#F5F5F5',
     backgroundColor: '#F5F5F5'
-  }
+  },
+  height: '32px',
 }));
 
 const CustomMUIMenuItem = styled(MenuItem)(({ theme }) => ({

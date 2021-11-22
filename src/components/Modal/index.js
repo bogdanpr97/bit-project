@@ -61,7 +61,7 @@ export default function GeneralModal({open, setOpen}) {
               </div>
               <div className="input-section">
                 <div>Name*</div>
-                <Input value={name} setValue={setName} />
+                <Input readOnly value={name} setValue={setName} />
               </div>
             </div>
           </div>

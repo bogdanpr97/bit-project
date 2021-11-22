@@ -1,0 +1,45 @@
+$defaultGray: #e9e9e9;
+$hoverGray: #858585;
+$focusBlue: #8db5e3;
+$placeholderGray: #f6f6f6;
+$activeBlue: #44a8f6;
+$disabledGrayBorder: #f7f7f7;
+$disabledGray: #c9c9c9;
+$readOnlyGray: #f7f7f7;
+
+.inputElement {
+  height: 32px;
+  width: 60%;
+  padding: 0px 12px;
+  border: 2px solid $defaultGray;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.focused {
+    border: 2px solid $focusBlue;
+  }
+
+  &.hovered {
+    border: 2px solid $hoverGray;
+  }
+
+  &.active {
+    border: 2px solid $activeBlue;
+  }
+
+  &.disabled {
+    border: 1px solid $disabledGray;
+    background-color: white;
+    &::placeholder {
+      color: $disabledGray;
+    }
+  }
+
+  &.readOnly {
+    border: 1px solid $readOnlyGray;
+    background-color: $readOnlyGray;
+  }
+}
+
