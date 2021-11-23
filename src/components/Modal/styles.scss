@@ -22,6 +22,7 @@
   width: 100%;
   height: 100%;
   padding: 24px;
+  overflow: scroll;
 }
 
 .close-modal-icon {
@@ -36,10 +37,60 @@
   margin-bottom: 32px;
 }
 
+.label {
+  margin-right: 30px;
+  min-width: 100px;
+}
+
 .input-section {
-  width: 40%;
+  display: flex;
+  width: 50%;
+  margin-bottom: 12px;
+}
+
+.checkbox-section {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.checkbox-text {
+  margin-left: 10px;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  height: 80px;
+  width: 100%;
+  background-color: white;
+}
+
+.buttons-container {
+  padding: 12px;
+  width: 100%;
+  display: flex;
+}
+
+.save-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 25px;
+  width: 100px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-button {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  width: 100px;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-right: 12px;
 }

@@ -1,0 +1,64 @@
+$defaultGray: #e9e9e9;
+$hoverGray: #858585;
+$focusBlue: #1d6bc6;
+$placeholderGray: #f6f6f6;
+$pressedBlue: #44a8f6;
+$disabledGrayBorder: #f7f7f7;
+$disabledGray: #c9c9c9;
+$readOnlyGray: #f7f7f7;
+$checkedBlue: #047ee6;
+
+.icon-checkbox {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.checkboxElement {
+  height: 18px;
+  width: 18px;
+  border: 2px solid $defaultGray;
+  cursor: pointer;
+
+  &.hovered {
+    border: 2px solid $hoverGray;
+  }
+
+  &.focused {
+    border: 2px solid $focusBlue;
+  }
+
+  &.checked {
+    border-color: $checkedBlue;
+    background: $checkedBlue;
+
+    &.focused {
+      border: 2px solid $focusBlue;
+    }
+
+    &.disabled {
+      background-color: $disabledGray;
+    }
+  }
+
+  &.pressed {
+    border: 2px solid $pressedBlue;
+  }
+
+  &.disabled {
+    border: 2px solid $disabledGray;
+  }
+}
+

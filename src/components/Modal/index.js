@@ -5,6 +5,8 @@ import { ReactComponent as CloseIcon } from '../../assets/icons/close-modal.svg'
 import './styles.scss';
 import CustomSelect from '../Select';
 import Input from '../Input';
+import CustomCheckbox from '../CheckBox';
+import { NotificationContext } from '../../providers/NotificationProvider';
 
 const style = {
   position: 'absolute',
@@ -29,8 +31,14 @@ const typeOptions = [
 ]
 
 export default function GeneralModal({open, setOpen}) {
+  const { addNotification } = React.useContext(NotificationContext);
   const [type, setType] = React.useState("");
   const [name, setName] = React.useState("");
+  const [readOnlyValue, setReadOnlyValue] = React.useState("read only");
+  const [disabledValue, setDisabledValue] = React.useState("disabled");
+  const [pdfChecked, setPdfChecked] = React.useState(false);
+  const [othersChecked, setOthersChecked] = React.useState(false);
+  const [othersTrueChecked, setOthersTrueChecked] = React.useState(true);
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -56,14 +64,84 @@ export default function GeneralModal({open, setOpen}) {
             <div className="modal-content">
               <div className="section-heading">Details</div>
               <div className="input-section">
-                <div>Type</div>
+                <div className="label">Type</div>
                 <CustomSelect value={type} onChange={handleChange} options={typeOptions} />
               </div>
               <div className="input-section">
-                <div>Name*</div>
-                <Input readOnly value={name} setValue={setName} />
+                <div className="label">Name*</div>
+                <Input value={name} setValue={setName} />
+              </div>
+              <div className="input-section">
+                <div className="label">Read Only</div>
+                <Input readOnly value={readOnlyValue} setValue={setReadOnlyValue} />
+              </div>
+              <div className="input-section">
+                <div className="label">Disabled</div>
+                <Input disabled value={disabledValue} setValue={setDisabledValue} />
+              </div>
+              <div className="input-section">
+                <div className="label">Attach Files</div>
+                <div stlye={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="checkbox-section">
+                    <CustomCheckbox checked={pdfChecked} setChecked={setPdfChecked} />
+                    <div className="checkbox-text">Pdf Attachments</div>
+                  </div>
+                  <div className="checkbox-section">
+                    <CustomCheckbox disabled checked={othersChecked} setChecked={setOthersChecked} />
+                    <div className="checkbox-text">Disabled</div>
+                  </div>
+                  <div className="checkbox-section">
+                    <CustomCheckbox disabled checked={othersTrueChecked} setChecked={setOthersTrueChecked} />
+                    <div className="checkbox-text">Disabled On</div>
+                  </div>
+                </div>
+              </div>
+              <div className="section-heading">EXTRA FOR SCROLL</div>
+              <div className="input-section">
+                <div className="label">Type</div>
+                <CustomSelect value={type} onChange={handleChange} options={typeOptions} />
+              </div>
+              <div className="input-section">
+                <div className="label">Name*</div>
+                <Input value={name} setValue={setName} />
+              </div>
+              <div className="input-section">
+                <div className="label">Read Only</div>
+                <Input readOnly value={readOnlyValue} setValue={setReadOnlyValue} />
+              </div>
+              <div className="input-section">
+                <div className="label">Disabled</div>
+                <Input disabled value={disabledValue} setValue={setDisabledValue} />
+              </div>
+              <div className="input-section">
+                <div className="label">Attach Files</div>
+                <div stlye={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="checkbox-section">
+                    <CustomCheckbox checked={pdfChecked} setChecked={setPdfChecked} />
+                    <div className="checkbox-text">Pdf Attachments</div>
+                  </div>
+                  <div className="checkbox-section">
+                    <CustomCheckbox disabled checked={othersChecked} setChecked={setOthersChecked} />
+                    <div className="checkbox-text">Disabled</div>
+                  </div>
+                  <div className="checkbox-section">
+                    <CustomCheckbox disabled checked={othersTrueChecked} setChecked={setOthersTrueChecked} />
+                    <div className="checkbox-text">Disabled On</div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div className="footer">
+            <div className="border"></div>
+            <div className="buttons-container">
+              <div onClick={() => setOpen(false)} className="cancel-button">
+                Cancel
+              </div>
+              <div onClick={() => addNotification('Successfully saved the report')} className="save-button">
+                Save
+              </div>
+            </div>    
           </div>
         </Box>
       </Modal>

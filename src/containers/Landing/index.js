@@ -6,8 +6,7 @@ import './styles.scss';
 
 const Landing = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const { addNotification } = useContext(NotificationContext);
-//onClick={() => addNotification('Successfully saved the report')}
+
   return (
     <div className="landing-container">
       <GeneralModal open={modalOpen} setOpen={setModalOpen} />

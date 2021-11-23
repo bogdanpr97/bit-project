@@ -32,6 +32,7 @@ $readOnlyGray: #f7f7f7;
   &.disabled {
     border: 1px solid $disabledGray;
     background-color: white;
+    opacity: 0.7;
     &::placeholder {
       color: $disabledGray;
     }
